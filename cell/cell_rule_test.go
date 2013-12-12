@@ -46,5 +46,17 @@ func TestLiveCell(t *testing.T) {
             })
         })
     })
+    Convey("Subject: Any live cell with more than three live neighbours dies", t, func() {
+        Convey("Given: Initial 4 neighbours", func() {
+            var neighbours = 4
+            Convey("When: cell mutate by given neighbours", func() {
+                cell.Mutate(neighbours)
+
+                Convey("Then: cell is dead", func() {
+                    So(cell.state, ShouldEqual, Dead)
+                })
+            })
+        })
+    })
 }
 
