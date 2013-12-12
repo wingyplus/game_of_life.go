@@ -10,5 +10,9 @@ type Cell struct {
 }
 
 func (cell *Cell) mutate(neighbours int) {
-    cell.state = Dead
+    if neighbours == 2 {
+        cell.state = Live
+    } else {
+        cell.state = Dead
+    }
 }
