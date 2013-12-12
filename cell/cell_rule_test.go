@@ -60,3 +60,18 @@ func TestLiveCell(t *testing.T) {
     })
 }
 
+func TestDeadCell(t *testing.T) {
+    Convey("Subject: Any dead cell with exactly three live neighbours a live cell", t, func() {
+        var cell *Cell = &Cell { state: Dead }
+
+        Convey("Given: Initial 3 neighbours", func() {
+            var neighbours = 3
+            Convey("When: cell mutate by given neighbours", func() {
+                cell.Mutate(neighbours)
+                Convey("Then: cell is live", func() {
+                    So(cell.state, ShouldEqual, Live)
+                })
+            })
+        })
+    })
+}
