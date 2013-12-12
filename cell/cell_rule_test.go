@@ -34,6 +34,17 @@ func TestLiveCell(t *testing.T) {
                 })
             })
         })
+        Convey("Given: Initial 3 neighbours", func() {
+            var neighbours = 3
+
+            Convey("When: cell mutate by given neighbours", func() {
+                cell.Mutate(neighbours)
+
+                Convey("Then: cell is live", func() {
+                    So(cell.state, ShouldEqual, Live)
+                })
+            })
+        })
     })
 }
 
